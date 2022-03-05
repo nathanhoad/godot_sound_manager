@@ -9,6 +9,7 @@ func _init(possible_busses: Array, pool_size: int = 8) -> void:
 	for possible_bus in possible_busses:
 		if AudioServer.get_bus_index(possible_bus) > -1:
 			bus = possible_bus
+			break
 	
 	for i in pool_size:
 		increase_pool()

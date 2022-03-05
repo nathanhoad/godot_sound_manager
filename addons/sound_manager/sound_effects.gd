@@ -14,6 +14,7 @@ var ui_bus: String = "Master" setget set_ui_bus
 
 func _ready() -> void:
 	add_child(audio_player_pool)
+	add_child(ui_audio_player_pool)
 	
 	bus = audio_player_pool.bus
 	ui_bus = ui_audio_player_pool.bus
