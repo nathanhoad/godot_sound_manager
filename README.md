@@ -1,4 +1,4 @@
-![SayWhat logo](logo.svg)
+![SayWhat logo](docs/logo.svg)
 
 # Godot Sound Manager
 
@@ -9,32 +9,22 @@ Features:
 - Pooled audio players
 - Handles music crossfades
 - Autodetect probable audio buses for both sounds and music
+- Splits sounds up into UI sounds and local sounds
 
-## Usage
+## Installation
 
-Copy the `sound_manager` directory into your `res://addons/` directory.
+Copy the `addons/sound_manager` directory into a `res://addons/sound_manager` directory.
 
 Enable `SoundManager` in project plugins.
 
-- **`SoundManager.play_sound(resource: AudioStream, override_bus: String = "")`**
+## Documentation
 
-    Play an audio stream. Optionally specify which audio bus you want to use for this sound.
+- [Sound effects](docs/Sounds.md)
+- [Music](docs/music.md)
 
-- **`SoundManager.set_default_sound_bus(bus: String)`**
+## Discord
 
-    Sets the default audio bus used for playing sounds.
-
-- **`SoundManager.play_music(resource: AudioStream, crossfade_duration: int = 0, override_bus: String = "")`**
-
-    Play some music with an optional fade in (or crossfade if something is already playing) and optionally specify which audio bus to use.
-
-- **`SoundManager.stop_music(fade_out_duration: int = 0)`**
-
-    Stop any music that's playing with an optional fade out.
-
-- **`SoundManager.set_default_music_bus(bus: String)`**
-
-    Sets the default audio bus used for playing music.
+[![Join the Discord](docs/discord.png)](https://discord.gg/zwBVQdJchX)
 
 ## Contributors
 

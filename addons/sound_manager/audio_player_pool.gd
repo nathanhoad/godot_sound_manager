@@ -18,13 +18,15 @@ func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPla
 	var player = get_available_player()
 	player.stream = resource
 	player.volume_db = linear2db(1)
+	player.pitch_scale = 1
 	player.bus = override_bus if override_bus != "" else bus
 	return player
   
 
-func play(resource: AudioStream, override_bus: String = "") -> void:
+func play(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
 	var player = prepare(resource, override_bus)
 	player.play()
+	return player
 
 
 func get_available_player() -> AudioStreamPlayer:

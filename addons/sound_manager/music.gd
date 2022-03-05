@@ -14,18 +14,20 @@ func _ready() -> void:
 	add_child(audio_player_pool)
 
 
-func play(resource: AudioStream, crossfade_duration = 0, override_bus: String = "") -> void:
-	if is_already_playing(resource): return
+func play(resource: AudioStream, crossfade_duration = 0, override_bus: String = "") -> AudioStreamPlayer:
+	var player = get_player_with_music(resource)
 	
-	# Fading out sounds quicker than fading in in
+	if player != null: return player
+	
+	# Fading out sounds is quicker than fading in
 	stop(crossfade_duration * 2)
 
-	var player = audio_player_pool.prepare(resource, override_bus)
+	player = audio_player_pool.prepare(resource, override_bus)
 	if crossfade_duration > 0:
 		audio_player_pool.fade_volume(player, -80, 0, crossfade_duration)
 
-	yield(get_tree(), "idle_frame")
-	player.play()
+	player.call_deferred("play")
+	return player
 
 
 func stop(fade_out_duration: int = 0) -> void:
@@ -34,17 +36,16 @@ func stop(fade_out_duration: int = 0) -> void:
 			player.stop()
 		else:
 			audio_player_pool.fade_volume(player, player.volume_db, -80, fade_out_duration)
-	yield(get_tree(), "idle_frame")
 
 
-func is_already_playing(resource: AudioStream) -> bool:
+func get_player_with_music(resource: AudioStream) -> AudioStreamPlayer:
 	for player in audio_player_pool.busy_players:
 		if player.stream.resource_path == resource.resource_path:
-			return true
-	return false
+			return player
+	return null
 
 
-### SETGET
+### Setget
 
 
 func set_bus(value: String) -> void:
