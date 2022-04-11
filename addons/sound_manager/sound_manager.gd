@@ -1,16 +1,18 @@
 extends Node
 
 
-const SoundEffects = preload("res://addons/sound_manager/sound_effects.gd")
-const Music = preload("res://addons/sound_manager/music.gd")
+const SoundEffectsPlayer = preload("res://addons/sound_manager/sound_effects.gd")
+const MusicPlayer = preload("res://addons/sound_manager/music.gd")
 
 
-onready var sound_effects: SoundEffects = SoundEffects.new()
-onready var music: Music = Music.new()
+onready var sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["Sounds", "sounds", "SFX"])
+onready var ui_sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["UI", "Interface", "interface", "Sounds", "sounds", "SFX"])
+onready var music: MusicPlayer = MusicPlayer.new()
 
 
 func _ready() -> void:
 	add_child(sound_effects)
+	add_child(ui_sound_effects)
 	add_child(music)
 
 
@@ -19,7 +21,7 @@ func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStream
 
 
 func play_ui_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
-	return sound_effects.play_ui(resource, override_bus)
+	return ui_sound_effects.play(resource, override_bus)
 
 
 func set_default_sound_bus(bus: String) -> void:
@@ -27,7 +29,7 @@ func set_default_sound_bus(bus: String) -> void:
 
 
 func set_default_ui_sound_bus(bus: String) -> void:
-	sound_effects.ui_bus = bus
+	ui_sound_effects.bus = bus
 
 
 func play_music(resource: AudioStream, crossfade_duration: int = 0, override_bus: String = "") -> AudioStreamPlayer:

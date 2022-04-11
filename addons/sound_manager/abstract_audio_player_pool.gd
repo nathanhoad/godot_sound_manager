@@ -5,7 +5,7 @@ var busy_players: Array = []
 var bus: String = "Master"
 
 
-func _init(possible_busses: Array, pool_size: int = 8) -> void:
+func _init(possible_busses: Array = [], pool_size: int = 8) -> void:
 	for possible_bus in possible_busses:
 		if AudioServer.get_bus_index(possible_bus) > -1:
 			bus = possible_bus
@@ -22,12 +22,6 @@ func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPla
 	player.pitch_scale = 1
 	player.bus = override_bus if override_bus != "" else bus
 	return player
-  
-
-func play(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
-	var player = prepare(resource, override_bus)
-	player.play()
-	return player
 
 
 func get_available_player() -> AudioStreamPlayer:
@@ -38,22 +32,13 @@ func get_available_player() -> AudioStreamPlayer:
 	return player
 
 
-func fade_volume(player: AudioStreamPlayer, from_volume: int, to_volume: int, duration: int):
-	var tween = Tween.new()
-	add_child(tween)
-	if from_volume > to_volume:
-		# Fade out
-		tween.interpolate_property(player, "volume_db", from_volume, to_volume, duration, Tween.TRANS_CIRC, Tween.EASE_IN)
-	else:
-		# Fade in
-		tween.interpolate_property(player, "volume_db", from_volume, to_volume, duration, Tween.TRANS_QUAD, Tween.EASE_OUT)
-	tween.start()
-	yield(tween, "tween_all_completed")
-	tween.queue_free()
+func mark_player_as_available(player: AudioStreamPlayer) -> void:
+	if busy_players.has(player):
+		busy_players.erase(player)
+		
+	if not available_players.has(player):
+		available_players.append(player)
 
-	if to_volume <= -79:
-		player.stop()
-  
 
 func increase_pool() -> void:
 	var player := AudioStreamPlayer.new()
@@ -67,5 +52,4 @@ func increase_pool() -> void:
 
 
 func _on_player_finished(player: AudioStreamPlayer) -> void:
-  busy_players.erase(player)
-  available_players.append(player)
+	mark_player_as_available(player)
