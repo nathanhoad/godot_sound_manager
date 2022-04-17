@@ -18,32 +18,32 @@ onready var music: MusicPlayer = $music
 
 
 func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
-	return $sound_effects.play(resource, override_bus)
+	return sound_effects.play(resource, override_bus)
 
 
 func play_ui_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
-	return $ui_sound_effects.play(resource, override_bus)
+	return ui_sound_effects.play(resource, override_bus)
 
 
 func set_default_sound_bus(bus: String) -> void:
-	$sound_effects.bus = bus
+	sound_effects.bus = bus
 
 
 func set_default_ui_sound_bus(bus: String) -> void:
-	$ui_sound_effects.bus = bus
+	ui_sound_effects.bus = bus
 
 
 func play_music(resource: AudioStream, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
-	return $music.play(resource, volume, crossfade_duration, override_bus)
+	return music.play(resource, volume, crossfade_duration, override_bus)
 
 
 func is_music_playing(resource: AudioStream = null) -> bool:
-	return $music.is_playing(resource)
+	return music.is_playing(resource)
 
 
 func stop_music(fade_out_duration: float = 0) -> void:
-	$music.stop(fade_out_duration)
+	music.stop(fade_out_duration)
 
 
 func set_default_music_bus(bus: String) -> void:
-	$music.bus = bus
+	music.bus = bus
