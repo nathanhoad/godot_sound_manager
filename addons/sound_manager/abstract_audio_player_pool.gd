@@ -1,12 +1,13 @@
 extends Node
 
-var available_players: Array = []
-var busy_players: Array = []
-var bus: String = "Master"
-
 
 export var default_busses := []
 export var default_pool_size := 8
+
+
+var available_players: Array = []
+var busy_players: Array = []
+var bus: String = "Master"
 
 
 func _init(possible_busses: Array = default_busses, pool_size: int = default_pool_size) -> void:

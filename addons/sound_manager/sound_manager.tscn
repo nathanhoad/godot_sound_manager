@@ -7,14 +7,15 @@
 [node name="SoundManager" type="Node"]
 script = ExtResource( 1 )
 
-[node name="sound_effects" type="Node" parent="."]
+[node name="SoundEffects" type="Node" parent="."]
 script = ExtResource( 2 )
 default_busses = [ "Sounds", "sounds", "SFX" ]
 
-[node name="ui_sound_effects" type="Node" parent="."]
+[node name="UISoundEffects" type="Node" parent="."]
 script = ExtResource( 2 )
 default_busses = [ "UI", "Interface", "interface", "Sounds", "sounds", "SFX" ]
 
-[node name="music" type="Node" parent="."]
+[node name="Music" type="Node" parent="."]
 script = ExtResource( 3 )
 default_busses = [ "Music", "music" ]
+default_pool_size = 2
