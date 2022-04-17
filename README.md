@@ -20,7 +20,7 @@ Enable `SoundManager` in project plugins.
 ## Documentation
 
 - [Sound effects](docs/Sounds.md)
-- [Music](docs/music.md)
+- [Music](docs/Music.md)
 
 ## Discord
 
