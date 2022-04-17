@@ -1,11 +1,16 @@
 extends Node
 
+
+export var default_busses := []
+export var default_pool_size := 8
+
+
 var available_players: Array = []
 var busy_players: Array = []
 var bus: String = "Master"
 
 
-func _init(possible_busses: Array = [], pool_size: int = 8) -> void:
+func _init(possible_busses: Array = default_busses, pool_size: int = default_pool_size) -> void:
 	for possible_bus in possible_busses:
 		if AudioServer.get_bus_index(possible_bus) > -1:
 			bus = possible_bus

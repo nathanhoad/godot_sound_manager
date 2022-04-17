@@ -5,15 +5,9 @@ const SoundEffectsPlayer = preload("res://addons/sound_manager/sound_effects.gd"
 const MusicPlayer = preload("res://addons/sound_manager/music.gd")
 
 
-onready var sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["Sounds", "sounds", "SFX"])
-onready var ui_sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["UI", "Interface", "interface", "Sounds", "sounds", "SFX"])
-onready var music: MusicPlayer = MusicPlayer.new()
-
-
-func _ready() -> void:
-	add_child(sound_effects)
-	add_child(ui_sound_effects)
-	add_child(music)
+onready var sound_effects: SoundEffectsPlayer = $SoundEffects
+onready var ui_sound_effects: SoundEffectsPlayer = $UISoundEffects
+onready var music: MusicPlayer = $Music
 
 
 func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
@@ -32,15 +26,39 @@ func set_default_ui_sound_bus(bus: String) -> void:
 	ui_sound_effects.bus = bus
 
 
-func play_music(resource: AudioStream, crossfade_duration: int = 0, override_bus: String = "") -> AudioStreamPlayer:
-	return music.play(resource, crossfade_duration, override_bus)
+func play_music(resource: AudioStream, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+	return music.play(resource, 0.0, crossfade_duration, override_bus)
+
+
+func play_music_at_volume(resource: AudioStream, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+	return music.play(resource, volume, crossfade_duration, override_bus)
+
+
+func get_music_track_history() -> Array:
+	return music.track_history
+
+
+func get_last_played_music_track() -> String:
+	return music.track_history[0]
 
 
 func is_music_playing(resource: AudioStream = null) -> bool:
 	return music.is_playing(resource)
+	
+
+func is_music_track_playing(resource_path: String) -> bool:
+	return music.is_track_playing(resource_path)
 
 
-func stop_music(fade_out_duration: int = 0) -> void:
+func get_currently_playing_music() -> Array:
+	return music.get_current()
+
+
+func get_currently_playing_music_tracks() -> Array:
+	return music.get_current_tracks()
+
+
+func stop_music(fade_out_duration: float = 0) -> void:
 	music.stop(fade_out_duration)
 
 
