@@ -36,6 +36,10 @@ func play_music(resource: AudioStream, crossfade_duration: int = 0, override_bus
 	return music.play(resource, crossfade_duration, override_bus)
 
 
+func is_music_playing(resource: AudioStream = null) -> bool:
+	return music.is_playing(resource)
+
+
 func stop_music(fade_out_duration: int = 0) -> void:
 	music.stop(fade_out_duration)
 

@@ -27,6 +27,13 @@ func play(resource: AudioStream, crossfade_duration: int = 0, override_bus: Stri
 	return player
 
 
+func is_playing(resource: AudioStream) -> bool:
+	if resource != null:
+		return _get_player_with_music(resource) != null
+	else:
+		return busy_players.size() > 0
+
+
 func stop(fade_out_duration: int = 0) -> void:
 	for player in busy_players:
 		if fade_out_duration <= 0:
