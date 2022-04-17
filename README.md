@@ -28,7 +28,7 @@ Enable `SoundManager` in project plugins.
 
 ## Contributors
 
-[Nathan Hoad](https://nathanhoad.net)
+Godot Sound Manager is made by [Nathan Hoad](https://nathanhoad.net) with help from [these cool people](https://github.com/nathanhoad/godot_sound_manager/graphs/contributors).
 
 ## License
 
