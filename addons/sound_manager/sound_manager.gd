@@ -41,6 +41,14 @@ func is_music_playing(resource: AudioStream = null) -> bool:
 	return music.is_playing(resource)
 
 
+# this is not very good
+func get_current_music():
+	if music.busy_players:
+		return music.busy_players[0].stream.resource_path
+	else:
+		return null
+
+
 func stop_music(fade_out_duration: float = 0) -> void:
 	music.stop(fade_out_duration)
 
