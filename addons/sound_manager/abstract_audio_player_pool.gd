@@ -10,7 +10,7 @@ var busy_players: Array = []
 var bus: String = "Master"
 
 
-func _init(possible_busses: Array = default_busses, pool_size: int = default_pool_size) -> void:
+func _ready(possible_busses: Array = default_busses, pool_size: int = default_pool_size) -> void:
 	for possible_bus in possible_busses:
 		if AudioServer.get_bus_index(possible_bus) > -1:
 			bus = possible_bus
@@ -23,9 +23,9 @@ func _init(possible_busses: Array = default_busses, pool_size: int = default_poo
 func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
 	var player = get_available_player()
 	player.stream = resource
-	player.volume_db = linear2db(1)
-	player.pitch_scale = 1
 	player.bus = override_bus if override_bus != "" else bus
+	player.volume_db = linear2db(1.0)
+	player.pitch_scale = 1
 	return player
 
 
