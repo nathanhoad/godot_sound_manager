@@ -1,5 +1,9 @@
 # Music
 
+- **`SoundManager.set_music_volume(volume_between_0_and_1: float) -> void:`**
+
+    Sets the volume for music using a given float between 0 and 1.
+
 - **`SoundManager.play_music(resource: AudioStream, crossfade_duration: int = 0, override_bus: String = "") -> AudioStreamPlayer`**
 
     Play some music with an optional fade in (or crossfade if something is already playing) and optionally specify which audio bus to use.

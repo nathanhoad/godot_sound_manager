@@ -24,7 +24,7 @@ Enable `SoundManager` in project plugins.
 
 ## Discord
 
-[![Join the Discord](docs/discord.png)](https://discord.gg/zwBVQdJchX)
+[![Join the Discord](docs/discord.svg)](https://discord.gg/zwBVQdJchX)
 
 ## Contributors
 
