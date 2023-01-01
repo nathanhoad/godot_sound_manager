@@ -4,6 +4,8 @@
 
 A simple music and sound effect player for the [Godot Engine](https://godotengine.org/).
 
+NOTE: This is for Godot 4. If you are using Godot 3 then have a look at the [v1.x branch](https://github.com/nathanhoad/godot_sound_manager/tree/v1.x).
+
 Features:
 
 - Pooled audio players

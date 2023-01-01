@@ -22,7 +22,7 @@ func play(resource: AudioStream, volume: float = 0.0, crossfade_duration: float 
 	# Remember this track name
 	track_history.insert(0, resource.resource_path)
 	if track_history.size() > 50:
-		track_history.remove(50)
+		track_history.remove_at(50)
 
 	player.call_deferred("play")
 	return player
@@ -68,8 +68,7 @@ func fade_volume(player: AudioStreamPlayer, from_volume: float, to_volume: float
 	_remove_tween(player)
 	
 	# Start a new tween
-	var tween = Tween.new()
-	add_child(tween)
+	var tween: Tween = get_tree().create_tween()
 	
 	player.volume_db = from_volume
 	if from_volume > to_volume:
@@ -80,8 +79,7 @@ func fade_volume(player: AudioStreamPlayer, from_volume: float, to_volume: float
 		tween.interpolate_property(player, "volume_db", from_volume, to_volume, duration, Tween.TRANS_QUAD, Tween.EASE_OUT)
 	
 	tweens[player] = tween
-	tween.connect("tween_all_completed", self, "_on_fade_completed", [player, tween, from_volume, to_volume, duration])
-	tween.start()
+	tween.finished.connect(_on_fade_completed.bind(player, tween, from_volume, to_volume, duration))
 
 	return player
 

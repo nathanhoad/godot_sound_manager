@@ -5,14 +5,14 @@ const SoundEffectsPlayer = preload("res://addons/sound_manager/sound_effects.gd"
 const MusicPlayer = preload("res://addons/sound_manager/music.gd")
 
 
-onready var sound_effects: SoundEffectsPlayer = $SoundEffects
-onready var ui_sound_effects: SoundEffectsPlayer = $UISoundEffects
-onready var music: MusicPlayer = $Music
+@onready var sound_effects: SoundEffectsPlayer = $SoundEffects
+@onready var ui_sound_effects: SoundEffectsPlayer = $UISoundEffects
+@onready var music: MusicPlayer = $Music
 
 
 func set_sound_volume(volume_between_0_and_1) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(sound_effects.bus), linear2db(volume_between_0_and_1))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus), linear2db(volume_between_0_and_1))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(sound_effects.bus), linear_to_db(volume_between_0_and_1))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus), linear_to_db(volume_between_0_and_1))
 
 
 func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
@@ -32,7 +32,7 @@ func set_default_ui_sound_bus(bus: String) -> void:
 
 
 func set_music_volume(volume_between_0_and_1: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(music.bus), linear2db(volume_between_0_and_1))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(music.bus), linear_to_db(volume_between_0_and_1))
 
 
 func play_music(resource: AudioStream, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
@@ -67,7 +67,7 @@ func get_currently_playing_music_tracks() -> Array:
 	return music.get_current_tracks()
 
 
-func stop_music(fade_out_duration: float = 0) -> void:
+func stop_music(fade_out_duration: float = 0.0) -> void:
 	music.stop(fade_out_duration)
 
 

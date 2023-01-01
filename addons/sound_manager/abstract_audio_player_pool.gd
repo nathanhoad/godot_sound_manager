@@ -1,8 +1,8 @@
 extends Node
 
 
-export var default_busses := []
-export var default_pool_size := 8
+@export var default_busses := []
+@export var default_pool_size := 8
 
 
 var available_players: Array = []
@@ -24,7 +24,7 @@ func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPla
 	var player = get_available_player()
 	player.stream = resource
 	player.bus = override_bus if override_bus != "" else bus
-	player.volume_db = linear2db(1.0)
+	player.volume_db = linear_to_db(1.0)
 	player.pitch_scale = 1
 	return player
 
@@ -50,7 +50,7 @@ func increase_pool() -> void:
 	add_child(player)
 	available_players.append(player)
 	player.bus = bus
-	player.connect("finished", self, "_on_player_finished", [player])
+	player.finished.connect(_on_player_finished.bind(player))
   
 
 ### SIGNALS
