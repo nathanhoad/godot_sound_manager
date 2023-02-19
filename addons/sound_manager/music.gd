@@ -73,10 +73,10 @@ func fade_volume(player: AudioStreamPlayer, from_volume: float, to_volume: float
 	player.volume_db = from_volume
 	if from_volume > to_volume:
 		# Fade out
-		tween.interpolate_property(player, "volume_db", from_volume, to_volume, duration, Tween.TRANS_CIRC, Tween.EASE_IN)
+		tween.tween_property(player, "volume_db", to_volume, duration).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN)
 	else:
 		# Fade in
-		tween.interpolate_property(player, "volume_db", from_volume, to_volume, duration, Tween.TRANS_QUAD, Tween.EASE_OUT)
+		tween.tween_property(player, "volume_db", to_volume, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	
 	tweens[player] = tween
 	tween.finished.connect(_on_fade_completed.bind(player, tween, from_volume, to_volume, duration))
@@ -96,9 +96,8 @@ func _get_player_with_music(resource: AudioStream) -> AudioStreamPlayer:
 
 func _remove_tween(player: AudioStreamPlayer) -> void:
 	if tweens.has(player):
-		var fade = tweens.get(player)
-		fade.stop_all()
-		fade.queue_free()
+		var fade: Tween = tweens.get(player)
+		fade.kill()
 		tweens.erase(player)
 
 
