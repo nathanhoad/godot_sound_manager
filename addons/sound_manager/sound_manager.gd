@@ -9,6 +9,30 @@ const MusicPlayer = preload("res://addons/sound_manager/music.gd")
 @onready var ui_sound_effects: SoundEffectsPlayer = $UISoundEffects
 @onready var music: MusicPlayer = $Music
 
+var sound_process_mode: ProcessMode:
+	set(value):
+		sound_effects.process_mode = value
+	get:
+		return sound_effects.process_mode
+
+var ui_sound_process_mode: ProcessMode:
+	set(value):
+		ui_sound_effects.process_mode = value
+	get:
+		return ui_sound_effects.process_mode 
+
+var music_process_mode: ProcessMode:
+	set(value):
+		music.process_mode = value
+	get:
+		return music.process_mode 
+
+
+func _ready() -> void:
+	self.sound_process_mode = PROCESS_MODE_PAUSABLE
+	self.ui_sound_process_mode = PROCESS_MODE_ALWAYS
+	self.music_process_mode = PROCESS_MODE_ALWAYS
+
 
 func set_sound_volume(volume_between_0_and_1) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(sound_effects.bus), linear_to_db(volume_between_0_and_1))

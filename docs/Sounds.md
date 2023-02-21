@@ -26,3 +26,7 @@ Playing sound effects is broken up into playing general sounds (ie. in the game 
 - **`SoundManager.set_default_ui_sound_bus(bus: String) -> void`**
 
     Sets the default audio bus used for playing UI sounds.
+
+## Pausing the game
+
+By default, general sounds are paused when the game is paused and UI sounds are not. To change this you can set `SoundManager.sound_process_mode` and/or `SoundManager.ui_sound_process_mode`. The values are of type `ProcessMode`.

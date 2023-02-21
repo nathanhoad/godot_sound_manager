@@ -47,3 +47,7 @@
 - **`SoundManager.set_default_music_bus(bus: String) -> void`**
 
     Sets the default audio bus used for playing music.
+
+## Pausing the game
+
+By default, music is not paused when the game is paused. To change this you can set `SoundManager.music_process_mode`. The value is of type `ProcessMode`.
