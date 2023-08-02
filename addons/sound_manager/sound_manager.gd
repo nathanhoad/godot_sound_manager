@@ -4,10 +4,9 @@ extends Node
 const SoundEffectsPlayer = preload("res://addons/sound_manager/sound_effects.gd")
 const MusicPlayer = preload("res://addons/sound_manager/music.gd")
 
-
-@onready var sound_effects: SoundEffectsPlayer = $SoundEffects
-@onready var ui_sound_effects: SoundEffectsPlayer = $UISoundEffects
-@onready var music: MusicPlayer = $Music
+var sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["Sounds", "SFX"], 8)
+var ui_sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["UI", "Interface", "Sounds", "SFX"], 8)
+var music: MusicPlayer = MusicPlayer.new(["Music"], 2)
 
 var sound_process_mode: ProcessMode:
 	set(value):
@@ -19,16 +18,20 @@ var ui_sound_process_mode: ProcessMode:
 	set(value):
 		ui_sound_effects.process_mode = value
 	get:
-		return ui_sound_effects.process_mode 
+		return ui_sound_effects.process_mode
 
 var music_process_mode: ProcessMode:
 	set(value):
 		music.process_mode = value
 	get:
-		return music.process_mode 
+		return music.process_mode
 
 
-func _ready() -> void:
+func _init() -> void:
+	add_child(sound_effects)
+	add_child(ui_sound_effects)
+	add_child(music)
+
 	self.sound_process_mode = PROCESS_MODE_PAUSABLE
 	self.ui_sound_process_mode = PROCESS_MODE_ALWAYS
 	self.music_process_mode = PROCESS_MODE_ALWAYS
@@ -77,7 +80,7 @@ func get_last_played_music_track() -> String:
 
 func is_music_playing(resource: AudioStream = null) -> bool:
 	return music.is_playing(resource)
-	
+
 
 func is_music_track_playing(resource_path: String) -> bool:
 	return music.is_track_playing(resource_path)
