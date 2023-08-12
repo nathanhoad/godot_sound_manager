@@ -37,6 +37,14 @@ func _init() -> void:
 	self.music_process_mode = PROCESS_MODE_ALWAYS
 
 
+func get_sound_volume() -> float:
+	return db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(sound_effects.bus)))
+
+
+func get_ui_sound_volume() -> float:
+	return db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus)))
+
+
 func set_sound_volume(volume_between_0_and_1) -> void:
 	_show_shared_bus_warning()
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(sound_effects.bus), linear_to_db(volume_between_0_and_1))
@@ -57,6 +65,10 @@ func set_default_sound_bus(bus: String) -> void:
 
 func set_default_ui_sound_bus(bus: String) -> void:
 	ui_sound_effects.bus = bus
+
+
+func get_music_volume() -> float:
+	return db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(music.bus)))
 
 
 func set_music_volume(volume_between_0_and_1: float) -> void:
