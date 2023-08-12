@@ -1,5 +1,9 @@
 # Music
 
+- **`SoundManager.get_music_volume() -> float:`**
+
+  Get the volume for music.
+
 - **`SoundManager.set_music_volume(volume_between_0_and_1: float) -> void:`**
 
   Sets the volume for music using a given float between 0 and 1.

@@ -1,4 +1,4 @@
-![SayWhat logo](docs/logo.svg)
+<img src="docs/logo.svg" width="128" height="128">
 
 # Godot Sound Manager
 
@@ -6,7 +6,9 @@ A simple music and sound effect player for the [Godot Engine](https://godotengin
 
 NOTE: This is for Godot 4. If you are using Godot 3 then have a look at the [v1.x branch](https://github.com/nathanhoad/godot_sound_manager/tree/v1.x).
 
-Features:
+[![Discord](https://img.shields.io/discord/945920743915524176?label=discord&logo=discord&logoColor=%23fff&style=for-the-badge)](https://discord.gg/zwBVQdJchX) [![Patreon](https://img.shields.io/badge/Patreon-Become%20a%20patron-%23f1465a?style=for-the-badge)](https://www.patreon.com/nathanhoad) [![Ko-fi](https://img.shields.io/badge/Ko--fi-buy%20me%20a%20coffee-%23ff5f5f?style=for-the-badge)](https://ko-fi.com/nathanhoad)
+
+## Features
 
 - Pooled audio players
 - Handles music crossfades
@@ -15,7 +17,7 @@ Features:
 
 ## Installation
 
-Copy the `addons/sound_manager` directory into a `res://addons/sound_manager` directory.
+Copy the `addons/sound_manager` directory into your `res://addons/` directory.
 
 Enable `SoundManager` in project plugins.
 
@@ -23,10 +25,6 @@ Enable `SoundManager` in project plugins.
 
 - [Sound effects](docs/Sounds.md)
 - [Music](docs/Music.md)
-
-## Discord
-
-[![Join the Discord](docs/discord.svg)](https://discord.gg/zwBVQdJchX)
 
 ## Contributors
 

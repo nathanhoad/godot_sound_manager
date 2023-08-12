@@ -1,0 +1,128 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3osj0ok66it"]
+
+[ext_resource type="Script" path="res://examples/example.gd" id="1_q14b0"]
+[ext_resource type="AudioStream" uid="uid://0ijba4nv63eo" path="res://examples/sound.wav" id="2_o0nxo"]
+[ext_resource type="AudioStream" uid="uid://col0qru75s2wa" path="res://examples/music.mp3" id="3_k0wap"]
+
+[node name="Example" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q14b0")
+sound_sample = ExtResource("2_o0nxo")
+music_sample = ExtResource("3_k0wap")
+
+[node name="Sound" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlaySound" type="Button" parent="Sound"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 220.0
+offset_right = 429.0
+offset_bottom = 251.0
+text = "Play sound"
+
+[node name="VolumeDown" type="Button" parent="Sound"]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 220.0
+offset_right = 629.0
+offset_bottom = 251.0
+text = "-"
+
+[node name="VolumeUp" type="Button" parent="Sound"]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 222.0
+offset_right = 765.0
+offset_bottom = 253.0
+text = "+"
+
+[node name="Label" type="Label" parent="Sound"]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 0
+offset_left = 619.0
+offset_top = 185.0
+offset_right = 731.0
+offset_bottom = 211.0
+text = "Sound Volume"
+
+[node name="SoundVolume" type="Label" parent="Sound"]
+layout_mode = 0
+offset_left = 639.0
+offset_top = 224.0
+offset_right = 713.0
+offset_bottom = 250.0
+text = "50%"
+horizontal_alignment = 1
+
+[node name="Music" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 99.0
+offset_right = 40.0
+offset_bottom = 139.0
+
+[node name="PlayMusic" type="Button" parent="Music"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 220.0
+offset_right = 351.0
+offset_bottom = 251.0
+text = "Play music"
+
+[node name="StopMusic" type="Button" parent="Music"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 220.0
+offset_right = 515.0
+offset_bottom = 251.0
+text = "Stop music"
+
+[node name="MusicVolumeDown" type="Button" parent="Music"]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 220.0
+offset_right = 629.0
+offset_bottom = 251.0
+text = "-"
+
+[node name="MusicVolumeUp" type="Button" parent="Music"]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 222.0
+offset_right = 765.0
+offset_bottom = 253.0
+text = "+"
+
+[node name="Label" type="Label" parent="Music"]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 0
+offset_left = 619.0
+offset_top = 185.0
+offset_right = 731.0
+offset_bottom = 211.0
+text = "Music Volume"
+
+[node name="MusicVolume" type="Label" parent="Music"]
+layout_mode = 0
+offset_left = 639.0
+offset_top = 224.0
+offset_right = 713.0
+offset_bottom = 250.0
+text = "50%"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Sound/PlaySound" to="." method="_on_play_sound_pressed"]
+[connection signal="pressed" from="Sound/VolumeDown" to="." method="_on_volume_down_pressed"]
+[connection signal="pressed" from="Sound/VolumeUp" to="." method="_on_volume_up_pressed"]
+[connection signal="pressed" from="Music/PlayMusic" to="." method="_on_play_music_pressed"]
+[connection signal="pressed" from="Music/StopMusic" to="." method="_on_stop_music_pressed"]
+[connection signal="pressed" from="Music/MusicVolumeDown" to="." method="_on_music_volume_down_pressed"]
+[connection signal="pressed" from="Music/MusicVolumeUp" to="." method="_on_music_volume_up_pressed"]
