@@ -101,7 +101,7 @@ func is_music_track_playing(resource_path: String) -> bool:
 
 
 func get_currently_playing_music() -> Array:
-	return music.get_current()
+	return music.get_currently_playing()
 
 
 func get_currently_playing_music_tracks() -> Array:
