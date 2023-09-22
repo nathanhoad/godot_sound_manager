@@ -6,7 +6,7 @@ A simple music and sound effect player for the [Godot Engine](https://godotengin
 
 NOTE: This is for Godot 4. If you are using Godot 3 then have a look at the [v1.x branch](https://github.com/nathanhoad/godot_sound_manager/tree/v1.x).
 
-[![Discord](https://img.shields.io/discord/945920743915524176?label=discord&logo=discord&logoColor=%23fff&style=for-the-badge)](https://discord.gg/zwBVQdJchX) [![Patreon](https://img.shields.io/badge/Patreon-Become%20a%20patron-%23f1465a?style=for-the-badge)](https://www.patreon.com/nathanhoad) [![Ko-fi](https://img.shields.io/badge/Ko--fi-buy%20me%20a%20coffee-%23ff5f5f?style=for-the-badge)](https://ko-fi.com/nathanhoad)
+[![Patreon](https://img.shields.io/badge/Patreon-Support%20this%20project-%23f1465a?style=for-the-badge)](https://www.patreon.com/nathanhoad) [![Discord](https://img.shields.io/discord/945920743915524176?label=discord&logo=discord&logoColor=%23fff&style=for-the-badge)](https://discord.gg/zwBVQdJchX)
 
 ## Features
 
