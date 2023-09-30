@@ -52,3 +52,7 @@ func _on_music_volume_up_pressed() -> void:
 	var next_volume: float = clamp(SoundManager.get_music_volume() + 0.1, 0, 1)
 	SoundManager.set_music_volume(next_volume)
 	music_volume_label.text = "%d%%" % [round(next_volume * 100)]
+
+
+func _on_play_sound_random_pitch_pressed() -> void:
+	SoundManager.play_sound(sound_sample, randf_range(0.8, 1.2))
