@@ -51,11 +51,19 @@ func set_sound_volume(volume_between_0_and_1) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus), linear_to_db(volume_between_0_and_1))
 
 
-func play_sound(resource: AudioStream, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
+func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
+	return sound_effects.play(resource, 1.0, override_bus)
+
+
+func play_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
 	return sound_effects.play(resource, pitch, override_bus)
 
 
-func play_ui_sound(resource: AudioStream, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
+func play_ui_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
+	return ui_sound_effects.play(resource, 1.0, override_bus)
+
+
+func play_ui_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
 	return ui_sound_effects.play(resource, pitch, override_bus)
 
 

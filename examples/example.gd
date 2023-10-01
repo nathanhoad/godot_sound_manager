@@ -55,4 +55,4 @@ func _on_music_volume_up_pressed() -> void:
 
 
 func _on_play_sound_random_pitch_pressed() -> void:
-	SoundManager.play_sound(sound_sample, randf_range(0.8, 1.2))
+	SoundManager.play_sound_with_pitch(sound_sample, randf_range(0.8, 1.2))
