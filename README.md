@@ -14,6 +14,7 @@ NOTE: This is for Godot 4. If you are using Godot 3 then have a look at the [v1.
 - Handles music crossfades
 - Autodetect probable audio buses for both sounds and music
 - Splits sounds up into UI sounds and local sounds
+- Supports both GDScript and C#
 
 ## Installation
 
@@ -25,6 +26,7 @@ Enable `SoundManager` in project plugins.
 
 - [Sound effects](docs/Sounds.md)
 - [Music](docs/Music.md)
+- [C#](docs/CSharp.md)
 
 ## Contributors
 

@@ -69,15 +69,15 @@ func is_track_playing(resource_path: String) -> bool:
 	return false
 
 
-func get_currently_playing() -> Array:
-	var tracks = []
+func get_currently_playing() -> Array[AudioStream]:
+	var tracks: Array[AudioStream] = []
 	for player in busy_players:
 		tracks.append(player.stream)
 	return tracks
 
 
-func get_currently_playing_tracks() -> Array:
-	var tracks = []
+func get_currently_playing_tracks() -> PackedStringArray:
+	var tracks: PackedStringArray = []
 	for player in busy_players:
 		tracks.append(player.stream.resource_path)
 	return tracks
