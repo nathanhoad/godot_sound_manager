@@ -22,18 +22,19 @@ offset_bottom = 40.0
 
 [node name="PlaySound" type="Button" parent="Sound"]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 220.0
-offset_right = 429.0
-offset_bottom = 251.0
+offset_left = 176.0
+offset_top = 216.0
+offset_right = 315.0
+offset_bottom = 247.0
 text = "Play sound"
 
 [node name="PlaySoundAtRandomPitch" type="Button" parent="Sound"]
-offset_left = 248.0
-offset_top = 163.0
-offset_right = 473.0
-offset_bottom = 194.0
-text = "Play sound At Random Pitch"
+layout_mode = 0
+offset_left = 324.0
+offset_top = 216.0
+offset_right = 529.0
+offset_bottom = 247.0
+text = "Play with random pitch"
 
 [node name="VolumeDown" type="Button" parent="Sound"]
 layout_mode = 0
@@ -72,9 +73,10 @@ horizontal_alignment = 1
 [node name="Music" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 99.0
-offset_right = 40.0
-offset_bottom = 139.0
+offset_left = 1.0
+offset_top = 142.0
+offset_right = 41.0
+offset_bottom = 182.0
 
 [node name="PlayMusic" type="Button" parent="Music"]
 layout_mode = 0
