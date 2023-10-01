@@ -20,11 +20,19 @@ Playing sound effects is broken up into playing general sounds (ie. in the game 
 
   This returns the `AudioStreamPlayer` that is playing the sound so you can adjust the pitch or volume.
 
+- **`SoundManager.play_sound_with_pitch(resource: AudioStream, pitch: float, override_bus: String = "") -> AudioStreamPlayer`**
+
+  Play an audio stream with a specific pitch. Optionally specify which audio bus you want to use for this sound.
+
 - **`SoundManager.play_ui_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer`**
 
   Play an audio stream intended for the user interface. Optionally specify which audio bus you want to use for this sound.
 
   This returns the `AudioStreamPlayer` that is playing the sound so you can adjust the pitch or volume.
+
+- **`SoundManager.play_ui_sound_with_pitch(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer`**
+
+  Play a UI audio stream with a specific pitch. Optionally specify which audio bus you want to use for this sound.
 
 - **`SoundManager.set_default_sound_bus(bus: String) -> void`**
 

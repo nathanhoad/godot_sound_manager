@@ -22,11 +22,19 @@ offset_bottom = 40.0
 
 [node name="PlaySound" type="Button" parent="Sound"]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 220.0
-offset_right = 429.0
-offset_bottom = 251.0
+offset_left = 176.0
+offset_top = 216.0
+offset_right = 315.0
+offset_bottom = 247.0
 text = "Play sound"
+
+[node name="PlaySoundAtRandomPitch" type="Button" parent="Sound"]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 216.0
+offset_right = 529.0
+offset_bottom = 247.0
+text = "Play with random pitch"
 
 [node name="VolumeDown" type="Button" parent="Sound"]
 layout_mode = 0
@@ -65,9 +73,10 @@ horizontal_alignment = 1
 [node name="Music" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 99.0
-offset_right = 40.0
-offset_bottom = 139.0
+offset_left = 1.0
+offset_top = 142.0
+offset_right = 41.0
+offset_bottom = 182.0
 
 [node name="PlayMusic" type="Button" parent="Music"]
 layout_mode = 0
@@ -120,6 +129,7 @@ text = "50%"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Sound/PlaySound" to="." method="_on_play_sound_pressed"]
+[connection signal="pressed" from="Sound/PlaySoundAtRandomPitch" to="." method="_on_play_sound_random_pitch_pressed"]
 [connection signal="pressed" from="Sound/VolumeDown" to="." method="_on_volume_down_pressed"]
 [connection signal="pressed" from="Sound/VolumeUp" to="." method="_on_volume_up_pressed"]
 [connection signal="pressed" from="Music/PlayMusic" to="." method="_on_play_music_pressed"]
