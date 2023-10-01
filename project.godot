@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="Sound Manager"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
+
+[dotnet]
+
+project/assembly_name="Sound Manager"
 
 [editor_plugins]
 

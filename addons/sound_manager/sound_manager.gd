@@ -28,6 +28,8 @@ var music_process_mode: ProcessMode:
 
 
 func _init() -> void:
+	Engine.register_singleton("SoundManager", self)
+
 	add_child(sound_effects)
 	add_child(ui_sound_effects)
 	add_child(music)
