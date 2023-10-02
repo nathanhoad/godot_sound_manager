@@ -22,11 +22,19 @@ offset_bottom = 40.0
 
 [node name="PlaySound" type="Button" parent="Sound"]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 220.0
-offset_right = 429.0
-offset_bottom = 251.0
+offset_left = 190.0
+offset_top = 217.0
+offset_right = 329.0
+offset_bottom = 248.0
 text = "Play sound"
+
+[node name="PlaySoundWithPitch" type="Button" parent="Sound"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 217.0
+offset_right = 533.0
+offset_bottom = 248.0
+text = "Play with random pitch"
 
 [node name="VolumeDown" type="Button" parent="Sound"]
 layout_mode = 0

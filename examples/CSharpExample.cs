@@ -11,6 +11,7 @@ public partial class CSharpExample : Control
   public AudioStream MusicSample = null;
 
   Button playSoundButton;
+  Button playSoundWithRandomPitchButton;
   Button soundVolumeDownButton;
   Button soundVolumeUpButton;
   Label soundVolumeLabel;
@@ -26,6 +27,8 @@ public partial class CSharpExample : Control
   {
     base._Ready();
 
+    GD.Randomize();
+
     // Sound
 
     SoundManager.SetSoundVolume(0.5f);
@@ -36,6 +39,12 @@ public partial class CSharpExample : Control
     playSoundButton.Pressed += () =>
     {
       SoundManager.PlaySound(SoundSample);
+    };
+
+    playSoundWithRandomPitchButton = GetNode<Button>("Sound/PlaySoundWithPitch");
+    playSoundWithRandomPitchButton.Pressed += () =>
+    {
+      SoundManager.PlaySoundWithPitch(SoundSample, (float)GD.RandRange(0.8f, 1.2f));
     };
 
     soundVolumeDownButton = GetNode<Button>("Sound/VolumeDown");

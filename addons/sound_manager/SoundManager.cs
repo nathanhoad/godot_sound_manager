@@ -45,9 +45,21 @@ namespace NathanHoad
     }
 
 
+    public static AudioStreamPlayer PlaySoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
+    {
+      return (AudioStreamPlayer)Instance.Call("play_sound_with_pitch", resource, pitch, overrideBus);
+    }
+
+
     public static AudioStreamPlayer PlayUISound(AudioStream resource, string overrideBus = "")
     {
       return (AudioStreamPlayer)Instance.Call("play_ui_sound", resource, overrideBus);
+    }
+
+
+    public static AudioStreamPlayer PlayUISoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
+    {
+      return (AudioStreamPlayer)Instance.Call("play_ui_sound_with_pitch", resource, pitch, overrideBus);
     }
 
 
