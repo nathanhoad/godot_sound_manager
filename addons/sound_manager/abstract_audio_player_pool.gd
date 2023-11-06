@@ -29,7 +29,14 @@ func _init(possible_busses: PackedStringArray = default_busses, pool_size: int =
 
 
 func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
-	var player := get_available_player()
+	var player: AudioStreamPlayer
+
+	if resource is AudioStreamRandomizer:
+		player = get_player_with_resource(resource)
+
+	if player == null:
+		player = get_available_player()
+
 	player.stream = resource
 	player.bus = override_bus if override_bus != "" else bus
 	player.volume_db = linear_to_db(1.0)
@@ -43,6 +50,13 @@ func get_available_player() -> AudioStreamPlayer:
 	var player = available_players.pop_front()
 	busy_players.append(player)
 	return player
+
+
+func get_player_with_resource(resource: AudioStream) -> AudioStreamPlayer:
+	for player in busy_players + available_players:
+		if player.stream == resource:
+			return player
+	return null
 
 
 func mark_player_as_available(player: AudioStreamPlayer) -> void:
