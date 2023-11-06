@@ -88,7 +88,7 @@ func fade_volume(player: AudioStreamPlayer, from_volume: float, to_volume: float
 	_remove_tween(player)
 
 	# Start a new tween
-	var tween: Tween = get_tree().create_tween()
+	var tween: Tween = get_tree().create_tween().bind_node(self)
 
 	player.volume_db = from_volume
 	if from_volume > to_volume:
