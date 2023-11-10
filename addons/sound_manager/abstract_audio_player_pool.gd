@@ -11,6 +11,12 @@ var bus: String = "Master"
 
 
 func _init(possible_busses: PackedStringArray = default_busses, pool_size: int = default_pool_size) -> void:
+	bus = get_possible_bus(possible_busses)
+
+	for i in pool_size:
+		increase_pool()
+
+func get_possible_bus(possible_busses: PackedStringArray) -> String: 
 	for possible_bus in possible_busses:
 		var cases: PackedStringArray = [
 			possible_bus,
@@ -21,12 +27,8 @@ func _init(possible_busses: PackedStringArray = default_busses, pool_size: int =
 		]
 		for case in cases:
 			if AudioServer.get_bus_index(case) > -1:
-				bus = case
-				break
-
-	for i in pool_size:
-		increase_pool()
-
+				return case
+	return "Master"
 
 func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
 	var player: AudioStreamPlayer
