@@ -5,7 +5,7 @@ var tweens: Dictionary = {}
 var track_history: PackedStringArray = []
 
 
-func play(resource: AudioStream, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+func play(resource: AudioStream, position: float = 0.0, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
 	stop(crossfade_duration * 2)
 
 	var player = _get_player_with_music(resource)
@@ -24,7 +24,7 @@ func play(resource: AudioStream, volume: float = 0.0, crossfade_duration: float 
 	if track_history.size() > 50:
 		track_history.remove_at(50)
 
-	player.call_deferred("play")
+	player.call_deferred("play", position)
 	return player
 
 

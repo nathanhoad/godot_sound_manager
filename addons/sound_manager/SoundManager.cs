@@ -97,9 +97,20 @@ namespace NathanHoad
     }
 
 
+    public static AudioStreamPlayer PlayMusicAtPosition(AudioStream resource, float position, float crossFadeDuration = 0.0f, string overrideBus = "")
+    {
+      return (AudioStreamPlayer)Instance.Call("play_music_at_position", resource, position, crossFadeDuration, overrideBus);
+    }
+
+
     public static AudioStreamPlayer PlayMusicAtVolume(AudioStream resource, float volume, float crossFadeDuration = 0.0f, string overrideBus = "")
     {
       return (AudioStreamPlayer)Instance.Call("play_music_at_volume", resource, volume, crossFadeDuration, overrideBus);
+    }
+
+    public static AudioStreamPlayer PlayMusicAtPositionAtVolume(AudioStream resource, float position, float volume, float crossFadeDuration = 0.0f, string overrideBus = "")
+    {
+      return (AudioStreamPlayer)Instance.Call("play_music_at_position_at_volume", resource, position, volume, crossFadeDuration, overrideBus);
     }
 
 
