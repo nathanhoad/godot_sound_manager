@@ -94,7 +94,7 @@ func play_music(resource: AudioStream, crossfade_duration: float = 0.0, override
 	return music.play(resource, 0.0,  0.0, crossfade_duration, override_bus)
 
 
-func play_music_at_position(resource: AudioStream, position: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+func play_music_from_position(resource: AudioStream, position: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
 	return music.play(resource, position, 0.0, crossfade_duration, override_bus)
 
 
@@ -102,7 +102,7 @@ func play_music_at_volume(resource: AudioStream, volume: float = 0.0, crossfade_
 	return music.play(resource, 0.0, volume, crossfade_duration, override_bus)
 
 
-func play_music_at_position_at_volume(resource: AudioStream, position: float = 0.0, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+func play_music_from_position_at_volume(resource: AudioStream, position: float = 0.0, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
 	return music.play(resource, position, volume, crossfade_duration, override_bus)
 
 
