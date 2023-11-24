@@ -5,163 +5,174 @@ namespace NathanHoad
 {
   public partial class SoundManager : Node
   {
-    private static Node instance;
-    public static Node Instance
-    {
-      get
-      {
-        if (instance == null)
-        {
-          instance = (Node)Engine.GetSingleton("SoundManager");
-        }
-        return instance;
-      }
-    }
+	private static Node instance;
+	public static Node Instance
+	{
+	  get
+	  {
+		if (instance == null)
+		{
+		  instance = (Node)Engine.GetSingleton("SoundManager");
+		}
+		return instance;
+	  }
+	}
 
 
-    #region Sounds
+	#region Sounds
 
-    public static float GetSoundVolume()
-    {
-      return (float)Instance.Call("get_sound_volume");
-    }
-
-
-    public static float GetUISoundVolume()
-    {
-      return (float)Instance.Call("get_ui_sound_volume");
-    }
+	public static float GetSoundVolume()
+	{
+	  return (float)Instance.Call("get_sound_volume");
+	}
 
 
-    public static void SetSoundVolume(float volume)
-    {
-      Instance.Call("set_sound_volume", volume);
-    }
+	public static float GetUISoundVolume()
+	{
+	  return (float)Instance.Call("get_ui_sound_volume");
+	}
 
 
-    public static AudioStreamPlayer PlaySound(AudioStream resource, string overrideBus = "")
-    {
-      return (AudioStreamPlayer)Instance.Call("play_sound", resource, overrideBus);
-    }
+	public static void SetSoundVolume(float volume)
+	{
+	  Instance.Call("set_sound_volume", volume);
+	}
 
 
-    public static AudioStreamPlayer PlaySoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
-    {
-      return (AudioStreamPlayer)Instance.Call("play_sound_with_pitch", resource, pitch, overrideBus);
-    }
+	public static AudioStreamPlayer PlaySound(AudioStream resource, string overrideBus = "")
+	{
+	  return (AudioStreamPlayer)Instance.Call("play_sound", resource, overrideBus);
+	}
 
 
-    public static AudioStreamPlayer PlayUISound(AudioStream resource, string overrideBus = "")
-    {
-      return (AudioStreamPlayer)Instance.Call("play_ui_sound", resource, overrideBus);
-    }
+	public static AudioStreamPlayer PlaySoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
+	{
+	  return (AudioStreamPlayer)Instance.Call("play_sound_with_pitch", resource, pitch, overrideBus);
+	}
 
 
-    public static AudioStreamPlayer PlayUISoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
-    {
-      return (AudioStreamPlayer)Instance.Call("play_ui_sound_with_pitch", resource, pitch, overrideBus);
-    }
+	public static AudioStreamPlayer PlayUISound(AudioStream resource, string overrideBus = "")
+	{
+	  return (AudioStreamPlayer)Instance.Call("play_ui_sound", resource, overrideBus);
+	}
 
 
-    public static void SetDefaultSoundBus(string bus)
-    {
-      Instance.Call("set_default_sound_bus", bus);
-    }
+	public static AudioStreamPlayer PlayUISoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
+	{
+	  return (AudioStreamPlayer)Instance.Call("play_ui_sound_with_pitch", resource, pitch, overrideBus);
+	}
 
 
-    public static void SetDefaultUISoundBus(string bus)
-    {
-      Instance.Call("set_default_ui_sound_bus", bus);
-    }
-
-    #endregion
+	public static void SetDefaultSoundBus(string bus)
+	{
+	  Instance.Call("set_default_sound_bus", bus);
+	}
 
 
-    #region  Music
+	public static void SetDefaultUISoundBus(string bus)
+	{
+	  Instance.Call("set_default_ui_sound_bus", bus);
+	}
 
-    public static float GetMusicVolume()
-    {
-      return (float)Instance.Call("get_music_volume");
-    }
-
-
-    public static void SetMusicVolume(float volume)
-    {
-      Instance.Call("set_music_volume", volume);
-    }
+	#endregion
 
 
-    public static AudioStreamPlayer PlayMusic(AudioStream resource, float crossFadeDuration = 0.0f, string overrideBus = "")
-    {
-      return (AudioStreamPlayer)Instance.Call("play_music", resource, crossFadeDuration, overrideBus);
-    }
+	#region  Music
+
+	public static float GetMusicVolume()
+	{
+	  return (float)Instance.Call("get_music_volume");
+	}
 
 
-    public static AudioStreamPlayer PlayMusicAtVolume(AudioStream resource, float volume, float crossFadeDuration = 0.0f, string overrideBus = "")
-    {
-      return (AudioStreamPlayer)Instance.Call("play_music_at_volume", resource, volume, crossFadeDuration, overrideBus);
-    }
+	public static void SetMusicVolume(float volume)
+	{
+	  Instance.Call("set_music_volume", volume);
+	}
 
 
-    public static Array<string> GetMusicTrackHistory()
-    {
-      return (Array<string>)Instance.Call("get_music_track_history");
-    }
+	public static AudioStreamPlayer PlayMusic(AudioStream resource, float crossFadeDuration = 0.0f, string overrideBus = "")
+	{
+	  return (AudioStreamPlayer)Instance.Call("play_music", resource, crossFadeDuration, overrideBus);
+	}
 
 
-    public static string GetLastPlayedMusicTrack()
-    {
-      return (string)Instance.Call("get_last_played_music_track");
-    }
+	public static AudioStreamPlayer PlayMusicFromPosition(AudioStream resource, float position, float crossFadeDuration = 0.0f, string overrideBus = "")
+	{
+	  return (AudioStreamPlayer)Instance.Call("play_music_from_position", resource, position, crossFadeDuration, overrideBus);
+	}
 
 
-    public static bool IsMusicPlaying(AudioStream resource = null)
-    {
-      return (bool)Instance.Call("is_music_playing", resource);
-    }
+	public static AudioStreamPlayer PlayMusicAtVolume(AudioStream resource, float volume, float crossFadeDuration = 0.0f, string overrideBus = "")
+	{
+	  return (AudioStreamPlayer)Instance.Call("play_music_at_volume", resource, volume, crossFadeDuration, overrideBus);
+	}
+
+	public static AudioStreamPlayer PlayMusicFromPositionAtVolume(AudioStream resource, float position, float volume, float crossFadeDuration = 0.0f, string overrideBus = "")
+	{
+	  return (AudioStreamPlayer)Instance.Call("play_music_from_position_at_volume", resource, position, volume, crossFadeDuration, overrideBus);
+	}
 
 
-    public static bool IsMusicTrackPlaying(string resource_path)
-    {
-      return (bool)Instance.Call("is_music_track_playing", resource_path);
-    }
+	public static Array<string> GetMusicTrackHistory()
+	{
+	  return (Array<string>)Instance.Call("get_music_track_history");
+	}
 
 
-    public static Array<AudioStream> GetCurrentlyPlayingMusic()
-    {
-      return (Array<AudioStream>)Instance.Call("get_currently_playing_music");
-    }
+	public static string GetLastPlayedMusicTrack()
+	{
+	  return (string)Instance.Call("get_last_played_music_track");
+	}
 
 
-    public static Array<string> GetCurrentlyPlayingTracks()
-    {
-      return (Array<string>)Instance.Call("get_currently_playing_tracks");
-    }
+	public static bool IsMusicPlaying(AudioStream resource = null)
+	{
+	  return (bool)Instance.Call("is_music_playing", resource);
+	}
 
 
-    public static void PauseMusic(AudioStream resource = null)
-    {
-      Instance.Call("pause_music", resource);
-    }
+	public static bool IsMusicTrackPlaying(string resource_path)
+	{
+	  return (bool)Instance.Call("is_music_track_playing", resource_path);
+	}
 
 
-    public static void ResumeMusic(AudioStream resource = null)
-    {
-      Instance.Call("resume_music", resource);
-    }
+	public static Array<AudioStream> GetCurrentlyPlayingMusic()
+	{
+	  return (Array<AudioStream>)Instance.Call("get_currently_playing_music");
+	}
 
 
-    public static void StopMusic(float fadeOutDuration = 0.0f)
-    {
-      Instance.Call("stop_music", fadeOutDuration);
-    }
+	public static Array<string> GetCurrentlyPlayingTracks()
+	{
+	  return (Array<string>)Instance.Call("get_currently_playing_tracks");
+	}
 
 
-    public static void SetDefaultMusicBus(string bus)
-    {
-      Instance.Call("set_default_music_bus", bus);
-    }
+	public static void PauseMusic(AudioStream resource = null)
+	{
+	  Instance.Call("pause_music", resource);
+	}
 
-    #endregion
+
+	public static void ResumeMusic(AudioStream resource = null)
+	{
+	  Instance.Call("resume_music", resource);
+	}
+
+
+	public static void StopMusic(float fadeOutDuration = 0.0f)
+	{
+	  Instance.Call("stop_music", fadeOutDuration);
+	}
+
+
+	public static void SetDefaultMusicBus(string bus)
+	{
+	  Instance.Call("set_default_music_bus", bus);
+	}
+
+	#endregion
   }
 }

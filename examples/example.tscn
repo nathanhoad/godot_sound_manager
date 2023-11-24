@@ -80,9 +80,9 @@ offset_bottom = 182.0
 
 [node name="PlayMusic" type="Button" parent="Music"]
 layout_mode = 0
-offset_left = 212.0
+offset_left = 229.0
 offset_top = 220.0
-offset_right = 351.0
+offset_right = 368.0
 offset_bottom = 251.0
 text = "Play music"
 
