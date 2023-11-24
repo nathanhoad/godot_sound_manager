@@ -14,9 +14,9 @@
 
   This returns the `AudioStreamPlayer` that is playing the sound so you can make any other adjustments you need.
 
-- **`SoundManager.play_music_at_position(resource: AudioStream, position: float = 0.0, crossfade_duration: int = 0, override_bus: String = "") -> AudioStreamPlayer`**
+- **`SoundManager.play_music_from_position(resource: AudioStream, position: float = 0.0, crossfade_duration: int = 0, override_bus: String = "") -> AudioStreamPlayer`**
 
-  Play some music at a certain point in the audio file with an optional fade in (or crossfade if something is already playing) and optionally specify which audio bus to use.
+  Play some music from a certain point in the audio file with an optional fade in (or crossfade if something is already playing) and optionally specify which audio bus to use.
 
   This returns the `AudioStreamPlayer` that is playing the sound so you can make any other adjustments you need.
 
@@ -26,9 +26,9 @@
 
   This returns the `AudioStreamPlayer` that is playing the sound so you can make any other adjustments you need.
 
-- **`SoundManager.play_music_at_position_at_volume(resource: AudioStream, position: floatm = 0.0 volume: float = 0.0, crossfade_duration: int = 0, override_bus: String = "") -> AudioStreamPlayer`**
+- **`SoundManager.play_music_from_position_at_volume(resource: AudioStream, position: floatm = 0.0 volume: float = 0.0, crossfade_duration: int = 0, override_bus: String = "") -> AudioStreamPlayer`**
 
-  Play some music at a certain point in the audio file at a given volume with an optional fade in (or crossfade if something is already playing) and optionally specify which audio bus to use.
+  Play some music from a certain point in the audio file at a given volume with an optional fade in (or crossfade if something is already playing) and optionally specify which audio bus to use.
 
   This returns the `AudioStreamPlayer` that is playing the sound so you can make any other adjustments you need.
 
