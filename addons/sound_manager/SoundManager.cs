@@ -51,6 +51,12 @@ namespace NathanHoad
 	}
 
 
+	public static void StopSound(AudioStream resource)
+	{
+		Instance.Call("stop_sound", resource);
+	}
+
+
 	public static AudioStreamPlayer PlayUISound(AudioStream resource, string overrideBus = "")
 	{
 	  return (AudioStreamPlayer)Instance.Call("play_ui_sound", resource, overrideBus);
@@ -60,6 +66,12 @@ namespace NathanHoad
 	public static AudioStreamPlayer PlayUISoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
 	{
 	  return (AudioStreamPlayer)Instance.Call("play_ui_sound_with_pitch", resource, pitch, overrideBus);
+	}
+
+
+	public static void StopSound(AudioStream resource)
+	{
+		Instance.Call("stop_ui_sound", resource);
 	}
 
 
