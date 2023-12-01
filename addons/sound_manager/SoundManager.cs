@@ -53,7 +53,7 @@ namespace NathanHoad
 
 	public static void StopSound(AudioStream resource)
 	{
-		Instance.Call("stop_sound", resource);
+	  Instance.Call("stop_sound", resource);
 	}
 
 
@@ -71,7 +71,7 @@ namespace NathanHoad
 
 	public static void StopSound(AudioStream resource)
 	{
-		Instance.Call("stop_ui_sound", resource);
+	  Instance.Call("stop_ui_sound", resource);
 	}
 
 
