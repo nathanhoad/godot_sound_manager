@@ -25,6 +25,7 @@ Enable `SoundManager` in project plugins.
 ## Documentation
 
 - [Sound effects](docs/Sounds.md)
+- [Ambient sounds](docs/AmbientSounds.md)
 - [Music](docs/Music.md)
 - [C#](docs/CSharp.md)
 
