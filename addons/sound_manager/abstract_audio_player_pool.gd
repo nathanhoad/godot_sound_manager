@@ -75,11 +75,20 @@ func mark_player_as_available(player: AudioStreamPlayer) -> void:
 	if busy_players.has(player):
 		busy_players.erase(player)
 
-	if not available_players.has(player):
+	if available_players.size() >= default_pool_size:
+		player.queue_free()
+	elif not available_players.has(player):
 		available_players.append(player)
 
 
 func increase_pool() -> void:
+	# See if we can reclaim a rogue busy player
+	for player in busy_players:
+		if not player.playing:
+			mark_player_as_available(player)
+			return
+
+	# Otherwise, add a new player
 	var player := AudioStreamPlayer.new()
 	add_child(player)
 	available_players.append(player)
