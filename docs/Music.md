@@ -76,4 +76,4 @@
 
 By default, music is not paused when the game is paused. To change this you can set `SoundManager.music_process_mode`. The value is of type `ProcessMode`.
 
-You can also make use of the `pause_music` method desribed above.
+You can also make use of the `pause_music` method described above.
