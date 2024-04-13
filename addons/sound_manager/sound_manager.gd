@@ -184,7 +184,7 @@ func get_currently_playing_music() -> Array:
 
 
 func get_currently_playing_music_tracks() -> Array:
-	return music.get_current_tracks()
+	return music.get_currently_playing_tracks()
 
 
 func pause_music(resource: AudioStream = null) -> void:
