@@ -58,14 +58,9 @@ func get_sound_volume() -> float:
 	return db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(sound_effects.bus)))
 
 
-func get_ui_sound_volume() -> float:
-	return db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus)))
-
-
 func set_sound_volume(volume_between_0_and_1: float) -> void:
 	_show_shared_bus_warning()
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(sound_effects.bus), linear_to_db(volume_between_0_and_1))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus), linear_to_db(volume_between_0_and_1))
 
 
 func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
@@ -82,6 +77,24 @@ func stop_sound(resource: AudioStream) -> void:
 	return sound_effects.stop(resource)
 
 
+func set_default_sound_bus(bus: String) -> void:
+	sound_effects.bus = bus
+
+
+#endregion
+
+#region UI sounds
+
+
+func get_ui_sound_volume() -> float:
+	return db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus)))
+
+
+func set_ui_sound_volume(volume_between_0_and_1: float) -> void:
+	_show_shared_bus_warning()
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus), linear_to_db(volume_between_0_and_1))
+
+
 func play_ui_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
 	return ui_sound_effects.play(resource, override_bus)
 
@@ -94,10 +107,6 @@ func play_ui_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, overrid
 
 func stop_ui_sound(resource: AudioStream) -> void:
 	return ui_sound_effects.stop(resource)
-
-
-func set_default_sound_bus(bus: String) -> void:
-	sound_effects.bus = bus
 
 
 func set_default_ui_sound_bus(bus: String) -> void:
@@ -209,6 +218,8 @@ func set_default_music_bus(bus: String) -> void:
 
 
 func _show_shared_bus_warning() -> void:
+	if "Master" in [music.bus, sound_effects.bus, ui_sound_effects.bus, ambient_sounds.bus]:
+		push_warning("Using the Master sound bus directly isn't recommended.")
 	if music.bus == sound_effects.bus or music.bus == ui_sound_effects.bus:
 		push_warning("Both music and sounds are using the same bus: %s" % music.bus)
 
