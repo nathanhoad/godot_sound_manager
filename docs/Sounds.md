@@ -12,7 +12,11 @@ Playing sound effects is broken up into playing general sounds (ie. in the game 
 
 - **`SoundManager.set_sound_volume(volume_between_0_and_1: float) -> void:`**
 
-  Sets the volume for sounds (both general and UI sounds) using a given float between 0 and 1.
+  Sets the volume for sounds using a given float between 0 and 1.
+
+- **`SoundManager.set_ui_sound_volume(volume_between_0_and_1: float) -> void:`**
+
+  Sets the volume for UI sounds using a given float between 0 and 1.
 
 - **`SoundManager.play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer`**
 
