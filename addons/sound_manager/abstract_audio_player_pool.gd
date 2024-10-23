@@ -76,6 +76,7 @@ func mark_player_as_available(player: AudioStreamPlayer) -> void:
 		busy_players.erase(player)
 
 	if available_players.size() >= default_pool_size:
+		available_players.erase(player)
 		player.queue_free()
 	elif not available_players.has(player):
 		available_players.append(player)
