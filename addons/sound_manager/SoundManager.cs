@@ -81,6 +81,12 @@ namespace NathanHoad
 
         #region Ambient sounds
 
+        public static float GetAmbientSoundVolume()
+            => (float)Instance.Call("get_ambient_sound_volume");
+
+        public static void SetAmbientSoundVolume(float volume)
+            => Instance.Call("set_ambient_sound_volume", volume);
+
         public static AudioStreamPlayer PlayAmbientSound(AudioStream resource, float fadeInDuration = 0.0f, string overrideBus = "")
             => (AudioStreamPlayer)Instance.Call("play_ambient_sound", resource, fadeInDuration, overrideBus);
 
