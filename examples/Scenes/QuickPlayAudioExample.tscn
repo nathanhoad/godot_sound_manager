@@ -101,6 +101,9 @@ position = Vector2(252, 275)
 [node name="bgm02Pellet" parent="." instance=ExtResource("7_8dmea")]
 position = Vector2(872, 275)
 
+[node name="Sprite2D" parent="bgm02Pellet" index="1"]
+modulate = Color(0, 0.352941, 1, 1)
+
 [node name="sfx01Pellet" parent="." instance=ExtResource("7_8dmea")]
 position = Vector2(563, 539)
 

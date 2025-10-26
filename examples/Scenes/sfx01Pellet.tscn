@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8hehs3ufl5v0"]
 
 [ext_resource type="Script" path="res://examples/Scripts/DestroyOnContact.cs" id="1_xrqd1"]
-[ext_resource type="Texture2D" uid="uid://bf2neiij83ym3" path="res://examples/whiteFilledCircle.png" id="2_ittls"]
+[ext_resource type="Texture2D" uid="uid://bf2neiij83ym3" path="res://examples/Graphics/whiteFilledCircle.png" id="2_ittls"]
 [ext_resource type="Script" path="res://addons/sound_manager/Scripts/Utils/QuickPlayAudio.cs" id="3_iv3mu"]
 [ext_resource type="AudioStream" uid="uid://0ijba4nv63eo" path="res://examples/Audio/sound.wav" id="4_fj337"]
 
