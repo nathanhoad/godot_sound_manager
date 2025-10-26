@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://biw6c12vxoywv"
+path="res://.godot/imported/A Small Adventure.ogg-2b6adad31db8ef9009a8d3e11474370a.oggvorbisstr"
+
+[deps]
+
+source_file="res://examples/Audio/A Small Adventure.ogg"
+dest_files=["res://.godot/imported/A Small Adventure.ogg-2b6adad31db8ef9009a8d3e11474370a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

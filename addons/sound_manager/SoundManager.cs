@@ -1,5 +1,6 @@
 using Godot;
 using Godot.Collections;
+using NathanHoad.SoundManagement;
 
 namespace NathanHoad
 {
@@ -251,5 +252,19 @@ namespace NathanHoad
         }
 
         #endregion
+    
+        public static void PlayAudio(AudioType audioType, AudioStream audio, float crossfadeDur = 1f)
+        {
+            switch (audioType)
+            {
+                case AudioType.BGMusic:
+                    PlayMusic(audio, crossfadeDur);
+                    break;
+                case AudioType.SoundFX:
+                    PlaySound(audio);
+                    break;
+            }
+
+        }
     }
 }
