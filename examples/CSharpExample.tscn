@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpna8wpu7up3s"]
+[gd_scene format=3 uid="uid://dpna8wpu7up3s"]
 
-[ext_resource type="Script" path="res://examples/CSharpExample.cs" id="1_pyiaa"]
+[ext_resource type="Script" uid="uid://dcw0j4eb6ak" path="res://examples/CSharpExample.cs" id="1_pyiaa"]
 [ext_resource type="AudioStream" uid="uid://0ijba4nv63eo" path="res://examples/sound.wav" id="2_3unvn"]
 [ext_resource type="AudioStream" uid="uid://col0qru75s2wa" path="res://examples/music.mp3" id="3_14kbq"]
 
-[node name="Example" type="Control"]
+[node name="Example" type="Control" unique_id=1107359434]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,12 +15,12 @@ script = ExtResource("1_pyiaa")
 SoundSample = ExtResource("2_3unvn")
 MusicSample = ExtResource("3_14kbq")
 
-[node name="Sound" type="Control" parent="."]
+[node name="Sound" type="Control" parent="." unique_id=116502898]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PlaySound" type="Button" parent="Sound"]
+[node name="PlaySound" type="Button" parent="Sound" unique_id=316121347]
 layout_mode = 0
 offset_left = 190.0
 offset_top = 217.0
@@ -28,7 +28,7 @@ offset_right = 329.0
 offset_bottom = 248.0
 text = "Play sound"
 
-[node name="PlaySoundWithPitch" type="Button" parent="Sound"]
+[node name="PlaySoundWithPitch" type="Button" parent="Sound" unique_id=1756897046]
 layout_mode = 0
 offset_left = 346.0
 offset_top = 217.0
@@ -36,7 +36,7 @@ offset_right = 533.0
 offset_bottom = 248.0
 text = "Play with random pitch"
 
-[node name="VolumeDown" type="Button" parent="Sound"]
+[node name="VolumeDown" type="Button" parent="Sound" unique_id=314595899]
 layout_mode = 0
 offset_left = 583.0
 offset_top = 220.0
@@ -44,7 +44,7 @@ offset_right = 629.0
 offset_bottom = 251.0
 text = "-"
 
-[node name="VolumeUp" type="Button" parent="Sound"]
+[node name="VolumeUp" type="Button" parent="Sound" unique_id=1921261822]
 layout_mode = 0
 offset_left = 719.0
 offset_top = 222.0
@@ -52,7 +52,7 @@ offset_right = 765.0
 offset_bottom = 253.0
 text = "+"
 
-[node name="Label" type="Label" parent="Sound"]
+[node name="Label" type="Label" parent="Sound" unique_id=586463133]
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 0
 offset_left = 619.0
@@ -61,7 +61,7 @@ offset_right = 731.0
 offset_bottom = 211.0
 text = "Sound Volume"
 
-[node name="Volume" type="Label" parent="Sound"]
+[node name="Volume" type="Label" parent="Sound" unique_id=1449086064]
 layout_mode = 0
 offset_left = 639.0
 offset_top = 224.0
@@ -70,14 +70,13 @@ offset_bottom = 250.0
 text = "50%"
 horizontal_alignment = 1
 
-[node name="Music" type="Control" parent="."]
-layout_mode = 3
+[node name="Music" type="Control" parent="." unique_id=147690908]
 anchors_preset = 0
 offset_top = 99.0
 offset_right = 40.0
 offset_bottom = 139.0
 
-[node name="PlayMusic" type="Button" parent="Music"]
+[node name="PlayMusic" type="Button" parent="Music" unique_id=156373489]
 layout_mode = 0
 offset_left = 212.0
 offset_top = 220.0
@@ -85,7 +84,7 @@ offset_right = 351.0
 offset_bottom = 251.0
 text = "Play music"
 
-[node name="StopMusic" type="Button" parent="Music"]
+[node name="StopMusic" type="Button" parent="Music" unique_id=1043096324]
 layout_mode = 0
 offset_left = 376.0
 offset_top = 220.0
@@ -93,7 +92,7 @@ offset_right = 515.0
 offset_bottom = 251.0
 text = "Stop music"
 
-[node name="VolumeDown" type="Button" parent="Music"]
+[node name="VolumeDown" type="Button" parent="Music" unique_id=856445776]
 layout_mode = 0
 offset_left = 583.0
 offset_top = 220.0
@@ -101,7 +100,7 @@ offset_right = 629.0
 offset_bottom = 251.0
 text = "-"
 
-[node name="VolumeUp" type="Button" parent="Music"]
+[node name="VolumeUp" type="Button" parent="Music" unique_id=625769304]
 layout_mode = 0
 offset_left = 719.0
 offset_top = 222.0
@@ -109,7 +108,7 @@ offset_right = 765.0
 offset_bottom = 253.0
 text = "+"
 
-[node name="Label" type="Label" parent="Music"]
+[node name="Label" type="Label" parent="Music" unique_id=21697867]
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 0
 offset_left = 619.0
@@ -118,7 +117,7 @@ offset_right = 731.0
 offset_bottom = 211.0
 text = "Music Volume"
 
-[node name="Volume" type="Label" parent="Music"]
+[node name="Volume" type="Label" parent="Music" unique_id=590218277]
 layout_mode = 0
 offset_left = 639.0
 offset_top = 224.0

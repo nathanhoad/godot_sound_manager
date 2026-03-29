@@ -46,6 +46,9 @@ func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPla
 	player.bus = override_bus if override_bus != "" else bus
 	player.volume_db = linear_to_db(1.0)
 	player.pitch_scale = 1
+
+	mark_player_as_busy(player)
+
 	return player
 
 
@@ -53,7 +56,6 @@ func get_available_player() -> AudioStreamPlayer:
 	if available_players.size() == 0:
 		increase_pool()
 	var player: AudioStreamPlayer = available_players.pop_front()
-	busy_players.append(player)
 	return player
 
 
@@ -69,6 +71,14 @@ func get_busy_player_with_resource(resource: AudioStream) -> AudioStreamPlayer:
 		if player.stream.resource_path == resource.resource_path:
 			return player
 	return null
+
+
+func mark_player_as_busy(player: AudioStreamPlayer) -> void:
+	if available_players.has(player):
+		available_players.erase(player)
+
+	if not busy_players.has(player):
+		busy_players.append(player)
 
 
 func mark_player_as_available(player: AudioStreamPlayer) -> void:
