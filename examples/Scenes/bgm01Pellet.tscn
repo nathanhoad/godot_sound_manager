@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7sx0a5ymnuov"]
+
+[ext_resource type="Script" path="res://examples/Scripts/DestroyOnContact.cs" id="1_sy086"]
+[ext_resource type="Texture2D" uid="uid://bf2neiij83ym3" path="res://examples/Graphics/whiteFilledCircle.png" id="2_tcq2s"]
+[ext_resource type="Script" path="res://addons/sound_manager/Scripts/Utils/QuickPlayAudio.cs" id="3_fqxww"]
+[ext_resource type="AudioStream" uid="uid://col0qru75s2wa" path="res://examples/Audio/music.mp3" id="4_l1hoa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thyka"]
+
+[node name="bgm01Pellet" type="Area2D"]
+position = Vector2(231, 311)
+script = ExtResource("1_sy086")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_thyka")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.858824, 0.258824, 0.0745098, 1)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_tcq2s")
+
+[node name="PlayWhenEaten" type="Node" parent="."]
+script = ExtResource("3_fqxww")
+_timing = 8
+_audio = ExtResource("4_l1hoa")

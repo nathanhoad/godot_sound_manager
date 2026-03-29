@@ -1,9 +1,9 @@
 extends Node
 
 
-const SoundEffectsPlayer = preload("./sound_effects.gd")
-const AmbientSoundsPlayer = preload("./ambient_sounds.gd")
-const MusicPlayer = preload("./music.gd")
+const SoundEffectsPlayer = preload("./Scripts/sound_effects.gd")
+const AmbientSoundsPlayer = preload("./Scripts/ambient_sounds.gd")
+const MusicPlayer = preload("./Scripts/music.gd")
 
 var sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["Sounds", "SFX"], 8)
 var ui_sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["UI", "Interface", "Sounds", "SFX"], 8)

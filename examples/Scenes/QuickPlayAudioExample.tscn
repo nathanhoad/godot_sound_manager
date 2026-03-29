@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://svgr143yy657"]
+
+[ext_resource type="Texture2D" uid="uid://buyqn82jrgqea" path="res://icon.svg" id="1_2by77"]
+[ext_resource type="Script" path="res://examples/Scripts/FreeMovement.cs" id="1_fgdll"]
+[ext_resource type="AudioStream" uid="uid://0ijba4nv63eo" path="res://examples/Audio/sound.wav" id="2_i4d7r"]
+[ext_resource type="Script" path="res://addons/sound_manager/Scripts/Utils/QuickPlayAudio.cs" id="3_fijtr"]
+[ext_resource type="AudioStream" uid="uid://biw6c12vxoywv" path="res://examples/Audio/A Small Adventure.ogg" id="4_f1q18"]
+[ext_resource type="Script" path="res://examples/Scripts/RegeneratePeriodically.cs" id="6_mullb"]
+[ext_resource type="PackedScene" uid="uid://b1ou6d3o5234u" path="res://examples/Scenes/bgm02Pellet.tscn" id="7_8dmea"]
+[ext_resource type="PackedScene" uid="uid://b7sx0a5ymnuov" path="res://examples/Scenes/bgm01Pellet.tscn" id="7_pcrqg"]
+[ext_resource type="PackedScene" uid="uid://c8hehs3ufl5v0" path="res://examples/Scenes/sfx01Pellet.tscn" id="8_e4h77"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbtci"]
+radius = 22.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1qpv"]
+font_size = 32
+
+[node name="Example" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(571, 286)
+script = ExtResource("1_fgdll")
+_moveSpeed = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_2by77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_gbtci")
+
+[node name="StartingBGM" type="Node" parent="."]
+script = ExtResource("3_fijtr")
+_timing = 2
+_audio = ExtResource("4_f1q18")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ControlsLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 99.0
+offset_right = 979.0
+offset_bottom = 144.0
+text = "Move the character around with gamepad or WASD"
+label_settings = SubResource("LabelSettings_q1qpv")
+
+[node name="FirstPelletLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 191.0
+offset_right = 942.0
+offset_bottom = 236.0
+text = "Eat for BGM 1"
+label_settings = SubResource("LabelSettings_q1qpv")
+
+[node name="SecondPelletLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 191.0
+offset_right = 1561.0
+offset_bottom = 236.0
+text = "Eat for BGM 2"
+label_settings = SubResource("LabelSettings_q1qpv")
+
+[node name="ThirdPelletLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 442.0
+offset_right = 1275.0
+offset_bottom = 487.0
+text = "Eat for SFX"
+label_settings = SubResource("LabelSettings_q1qpv")
+
+[node name="Regenerator_01" type="Node2D" parent="." node_paths=PackedStringArray("_initialNode")]
+script = ExtResource("6_mullb")
+_initialNode = NodePath("../bgm01Pellet")
+_toGenerate = ExtResource("7_pcrqg")
+_regenDelay = 2.0
+
+[node name="Regenerator_02" type="Node2D" parent="." node_paths=PackedStringArray("_initialNode")]
+script = ExtResource("6_mullb")
+_initialNode = NodePath("../bgm02Pellet")
+_toGenerate = ExtResource("7_8dmea")
+_regenDelay = 2.0
+
+[node name="Regenerator_03" type="Node2D" parent="." node_paths=PackedStringArray("_initialNode")]
+script = ExtResource("6_mullb")
+_initialNode = NodePath("../sfx01Pellet")
+_toGenerate = ExtResource("8_e4h77")
+_regenDelay = 2.0
+
+[node name="bgm01Pellet" parent="." instance=ExtResource("7_pcrqg")]
+position = Vector2(252, 275)
+
+[node name="bgm02Pellet" parent="." instance=ExtResource("7_8dmea")]
+position = Vector2(872, 275)
+
+[node name="Sprite2D" parent="bgm02Pellet" index="1"]
+modulate = Color(0, 0.352941, 1, 1)
+
+[node name="sfx01Pellet" parent="." instance=ExtResource("7_8dmea")]
+position = Vector2(563, 539)
+
+[node name="Sprite2D" parent="sfx01Pellet" index="1"]
+modulate = Color(0.217671, 0.500755, 0.34982, 1)
+
+[node name="PlayWhenEaten" parent="sfx01Pellet" index="2"]
+_audio = ExtResource("2_i4d7r")
+_audioType = 2
+
+[editable path="bgm02Pellet"]
+[editable path="sfx01Pellet"]
