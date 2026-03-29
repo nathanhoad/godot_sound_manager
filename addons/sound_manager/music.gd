@@ -7,7 +7,7 @@ var track_history: PackedStringArray = []
 func play(resource: AudioStream, position: float = 0.0, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
 	stop(crossfade_duration * 2)
 
-	var player = get_busy_player_with_resource(resource)
+	var player: AudioStreamPlayer = get_busy_player_with_resource(resource)
 
 	# If the player already exists then just make sure the volume is right (it might have just been fading in or out)
 	if player != null:
@@ -35,7 +35,7 @@ func is_playing(resource: AudioStream) -> bool:
 
 
 func stop(fade_out_duration: float = 0.0) -> void:
-	for player in busy_players:
+	for player: AudioStreamPlayer in busy_players:
 		if fade_out_duration <= 0.0:
 			fade_out_duration = 0.01
 		fade_volume(player, player.volume_db, -80, fade_out_duration)
@@ -43,26 +43,26 @@ func stop(fade_out_duration: float = 0.0) -> void:
 
 func pause(resource: AudioStream = null) -> void:
 	if resource != null:
-		var player = get_busy_player_with_resource(resource)
+		var player: AudioStreamPlayer = get_busy_player_with_resource(resource)
 		if is_instance_valid(player):
 			player.stream_paused = true
 	else:
-		for player in busy_players:
+		for player: AudioStreamPlayer in busy_players:
 			player.stream_paused = true
 
 
 func resume(resource: AudioStream = null) -> void:
 	if resource != null:
-		var player = get_busy_player_with_resource(resource)
+		var player: AudioStreamPlayer = get_busy_player_with_resource(resource)
 		if is_instance_valid(player):
 			player.stream_paused = false
 	else:
-		for player in busy_players:
+		for player: AudioStreamPlayer in busy_players:
 			player.stream_paused = false
 
 
 func is_track_playing(resource_path: String) -> bool:
-	for player in busy_players:
+	for player: AudioStreamPlayer in busy_players:
 		if player.stream.resource_path == resource_path:
 			return true
 	return false
@@ -70,13 +70,13 @@ func is_track_playing(resource_path: String) -> bool:
 
 func get_currently_playing() -> Array[AudioStream]:
 	var tracks: Array[AudioStream] = []
-	for player in busy_players:
+	for player: AudioStreamPlayer in busy_players:
 		tracks.append(player.stream)
 	return tracks
 
 
 func get_currently_playing_tracks() -> PackedStringArray:
 	var tracks: PackedStringArray = []
-	for player in busy_players:
+	for player: AudioStreamPlayer in busy_players:
 		tracks.append(player.stream.resource_path)
 	return tracks

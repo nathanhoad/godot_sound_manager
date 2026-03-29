@@ -8,15 +8,28 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Sound Manager"
-config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
+SoundManager="*uid://6q1wagejt60k"
+
+[debug]
+
+gdscript/warnings/directory_rules={}
+gdscript/warnings/unused_variable=2
+gdscript/warnings/shadowed_variable=2
+gdscript/warnings/shadowed_global_identifier=2
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/inferred_declaration=2
 
 [dotnet]
 
